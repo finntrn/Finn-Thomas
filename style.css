@@ -17,7 +17,16 @@
 
 
 
+/* Global box-sizing rule for consistent layout */
+* {
+    box-sizing: border-box;
+}
 
+/* Ensure body and HTML don't cause overflow */
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
 
 
@@ -48,77 +57,224 @@ header {
     top: 0;
 }
 
-header section:first-child {
-    background-color: #423735;
-    height: 100px;
-    width: 50vw;
-    border-bottom: solid 1px #91791F;
+header section {
+    flex: 1 1 50%; /* Flex-grow, flex-shrink, and flex-basis */
+    max-width: 50%; /* Prevent sections from exceeding half the width */
+}
+
+@media screen and (min-width: 391px) {
     
-    display: flex;
-    justify-content: end;
-    flex-direction: row;
-    gap: 45px;
+    header section:first-child {
+        background-color: #423735;
+        height: 100px;
+        width: 50vw;
+        border-bottom: solid 1px #91791F;
+
+        display: flex;
+        justify-content: end;
+        flex-direction: row;
+        gap: 45px;
+    }
+
+    header section a {
+        margin-top: 32px;
+        cursor: pointer;
+        max-width: 41px;
+        max-height: 41px;
+    }
+
+    header section svg {
+
+        height: 41px;
+        width: 41px;
+        fill: #FFD400;
+    }
+
+    header section svg:hover {
+        transform: scale(1.2);
+        transition: 200ms;
+    }
+
+    header section a:last-child {
+        margin-right: 20px;
+    }
+
+    header section:last-child {
+        background-color: #1E1B48;
+        height: 100px;
+        width: 50vw;
+        border-bottom: solid 1px #919CBD;
+    }
 }
 
-header section a {
-    margin-top: 32px;
-    cursor: pointer;
-    max-width: 41px;
-    max-height: 41px;
+@media screen and (max-width: 390px) {
+
+
+
+    header section a {
+        margin-top: 32px;
+        cursor: pointer;
+        max-width: 30px;
+        max-height: 30px;
+        margin-right: 0;
+    }
+
+    header section svg {
+
+        height: 30px;
+        width: 30px;
+        fill: #FFD400;
+    }
+
+    header section svg:hover {
+        transform: scale(1.2);
+        transition: 200ms;
+    }
+
+    header section a:last-child {
+        margin-right: 20px;
+    }
+
+    header section:last-child {
+        background-color: #1E1B48;
+        height: 100px;
+        width: 50vw;
+        border-bottom: solid 1px #919CBD;
+    }
+
+    h1 {
+        color: #919CBD;
+        font-family: Thesignature;
+        font-size: 40px;
+        margin-left: 20px;
+        margin-top: 32px;
+        font-weight: lighter;
+
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+    }
 }
 
-header section svg {
+@media screen and (max-width: 510px) {
+    h1 {
+        color: #919CBD;
+        font-family: Thesignature;
+        font-size: 40px;
+        margin-left: 20px;
+        margin-top: 32px;
+        font-weight: lighter;
 
-    height: 41px;
-    width: 41px;
-    fill: #FFD400;
-}
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+    }
 
-header section svg:hover {
-    transform: scale(1.2);
-    transition: 200ms;
-}
+    header section:first-child {
+        background-color: #423735;
+        height: 100px;
+        border-bottom: solid 1px #91791F;
 
-header section a:last-child {
-    margin-right: 45px;
-}
-
-header section:last-child {
-    background-color: #1E1B48;
-    height: 100px;
-    width: 50vw;
-    border-bottom: solid 1px #919CBD;
-}
-
-h1 {
-    color: #919CBD;
-    font-family: Thesignature;
-    font-size: 48px;
-    margin-left: 45px;
-    margin-top: 32px;
-    font-weight: lighter;
+        display: flex;
+        justify-content: end;
+        flex-direction: row;
+        gap: 20px;
+    }
     
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    main .album-section,
+    main .new-album-section {
+        max-width: 340px;
+    }
+    
+    .album-image {
+        max-width: 250px;
+    }
+
+    .album-section .song-info .song-title,
+    .album-section .song-info .artist-name,
+    .new-album-section .song-info .song-title,
+    .new-album-section .song-info .artist-name {
+        font-size: 18px;
+    }
+    
+    .new-album-section .cs {
+        max-width: 260px;
+    }
 }
+
+@media screen and (min-width: 511px) {
+    h1 {
+        color: #919CBD;
+        font-family: Thesignature;
+        font-size: 48px;
+        margin-left: 45px;
+        margin-top: 32px;
+        font-weight: lighter;
+
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+    }
+
+    iframe {
+        aspect-ratio: 5 / 3;
+        width: 460px;
+    }
+
+    .new-album-section .cs {
+        max-width: 420px;
+    }
+}
+
+
 
 main {
     display: flex;
     height: 100%;
 }
 
-main section:first-child {
-    height: 1620px;
-    width: 50vw;
-    background-color: #423735;
+@media screen and (max-width: 1150px) {
+
+    header section:first-child {
+        background-color: #423735;
+        width: 100vw; /* Make header sections adjust to screen size if needed */
+    }
+
+    header section:last-child {
+        width: 100vw;
+        background-color: #1E1B48;
+    }
+    
+    main {
+        flex-direction: column; /* Stack the sections vertically with the second on top */
+    }
+
+    main section:first-child {
+        background-color: #423735;
+        width: 100vw; /* Make header sections adjust to screen size if needed */
+    }
+
+    main section:last-child {
+        width: 100vw;
+        background-color: #1E1B48;
+    }
 }
 
-main section:last-child {
-    height: 1620px;
-    width: 50vw;
-    background-color: #1E1B48;
+@media screen and (min-width: 1151px) {
+    main section:first-child {
+        height: 1620px;
+        width: 50vw;
+        background-color: #423735;
+    }
+
+    main section:last-child {
+        height: 1620px;
+        width: 50vw;
+        background-color: #1E1B48;
+    }
 }
+
+
 
 
 
